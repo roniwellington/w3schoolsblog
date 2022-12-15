@@ -237,7 +237,12 @@
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(240px,auto));
     gap: 1rem;
-    color: var(--text-color);
+    color: #fff;
+    background-image: url('img/Merlin.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 50px;
   }
   .footer-box h2{
     font-size: 1.2rem;
@@ -254,7 +259,7 @@
   }
 .social a{
   font-size: 24px;
-  color: var(--text-color);
+  color: #fff;
   margin-right: 1rem;
 }
 .footer-box h3{
@@ -262,13 +267,14 @@
   margin-bottom: 10px;
 }
 .footer-box li a {
-  color: var(--text-color);
+  color: #fff;
 }
 
 .copyright{
+  background-color: #000000;
   padding: 20px;
   text-align: center;
-  color: var(--text-color);
+  color: #fff;
 }
 /*Making Responsive*/
 @media (max-width: 991px) {

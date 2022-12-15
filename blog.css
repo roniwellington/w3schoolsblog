@@ -317,7 +317,7 @@
     flex-direction: column;
     background: black;
     row-gap: 1.4rem;
-    padding: 20px;
+    padding: 25px;
     box-shadow: 4px 4px 0 4px rgb(14, 55, 54 / 15%);
     transition: 0.2s ease;
     text-align: left;
@@ -342,6 +342,14 @@
 @media (max-width: 452px){
   .home-text h1{
     font-size: 1.7rem;
+  }
+  .about{
+    width: 100%;
+    padding: 5px;
+  }
+  .about-text{
+   width: 100%;
+   padding: 10px;
   }
 }
   

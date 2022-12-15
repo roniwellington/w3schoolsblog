@@ -1,172 +1,127 @@
-* {
-    box-sizing: border-box;
-  }
-  
-  /* Style the body */
-  body {
-    font-family: Arial, Helvetica, sans-serif;
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200&display=swap');
+
+  * {
+    font-family: 'Poppins', sans-serif;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+  }
+  :root{
+    --text-color: #021f2a;
+    --bg-color: #fff
+  }
+
+  /*Custom Scroll Bar*/
+  html::-webkit-scrollbar{
+    width: 0.25rem;
+  }
+  html::-webkit-scrollbar-thumb{
+    background: transparent;
+  }
+  html::-webkit-scrollbar-track{
+    background: var(--text-color);
+    border-radius: 5rem;
+  }
+  section{
+    padding: 50px 100px;
   }
   
   /* Header/logo Title */
-  .header {
-    padding: 80px;
-    text-align: center;
-    background-image: url(img/konoha.webp);
-    /*background: #1abc9c;*/
-    color: white;
-  }
-  
-  /* Increase the font size of the heading */
-  .header h1 {
-    font-size: 40px;
-  }
-  
-  /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
-  .navbar {
-    overflow: hidden;
-    background-color: #333;
-    position: sticky;
-    position: -webkit-sticky;
+  header {
+    position: fixed;
+    width: 100%;
     top: 0;
-  }
-  
-  /* Style the navigation bar links */
-  .navbar a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
-  }
-  
-  
-  /* Right-aligned link */
-  .navbar a.right {
-    float: right;
-  }
-  
-  /* Change color on hover */
-  .navbar a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  /* Active/current link */
-  .navbar a.active {
-    background-color: #666;
-    color: white;
-  }
-  
-  /* Column container */
-  .row {  
-    display: -ms-flexbox; /* IE10 */
+    right: 0;
+    z-index: 1000;
     display: flex;
-    -ms-flex-wrap: wrap; /* IE10 */
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 100px;
+    transition: 0.5s;
+  }
+  .logo{
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--bg-color);
+  }
+  .navbar {
+    display: flex;
+    column-gap: 5rem;
+  }
+  .navbar li {
+    position: relative;
+  }
+  .navbar a{
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--bg-color);
+  }
+  .navbar a::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: var(--bg-color);
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transition: 0.4s;
+  }
+  .navbar a:hover::after,
+  .navbar .home-active::after{
+    width: 100%;
+  }
+  #menu-icon{
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 100001;
+    display: none;
+  }
+  .container{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .container img{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+  }
+  .swiper-pagination-bullet{
+    padding: 5px;
+  }
+  .swiper-pagination-bullet-active{
+    background: var(--bg-color);
+
+  }
+  .home-text{
+    z-index: 100001;
+    padding: 0 100px;
+  }
+  .home-text span {
+    color: var(--bg-color);
+    font-weight: 400;
+  }
+  .home-text h1{
+    color: var(--bg-color);
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 1REM;
+  }
+  .btn{
+    padding: 0.7rem 1rem;
+    background: var(--text-color);
+    color: var(--bg-color);
+    font-weight: 500;
+  }
+  .btn:hover{
+    background: #01151d;
   }
   
-  /* Create two unequal columns that sits next to each other */
-  /* Sidebar/left column */
-  .side {
-    -ms-flex: 30%; /* IE10 */
-    flex: 30%;
-    background-color: #f1f1f1;
-    padding: 20px;
-  }
-  
-  /* Main column */
-  .main {   
-    -ms-flex: 70%; /* IE10 */
-    flex: 70%;
-    background-color: white;
-    padding: 20px;
-  }
-  
-  /* Fake image, just for this example */
-
-  .fakeimg {
-    width: 100%;
-    padding: 20px;
-    background-position: center;
-    background-image: url(img/madara.jpg);
-  }
-
-  .rinnegan {
-    width: 100%;
-    padding: 20px;
-    background-position: center;
-    background-image: url(img/olhos.jpg);
-  }
-
-  .hinata {
-    width: 100%;
-    padding: 20px;
-    background-image: url(img/narutohinata.webp);
-    background-position: center;
-  }
-
-  .itachi {
-    width: 100%;
-    padding: 20px;
-    background-image: url(img/itachi-Uchiha-mangekyou-1.webp);
-    background-position: center;
-  }
-
-  .naruto {
-    width: 100%;
-    padding: 20px;
-    background-image: url(img/naruto.webp);
-    background-position: center;
-  }
-
-  .pain {
-    width: 100%;
-    padding: 20px;
-    background-image: url(img/pain.jpg);
-    background-position: center;
-  }
-  
-  .madara {
-    width: 100%;
-    padding: 20px;
-    background-image: url(img/uchiha\ \ madara.webp);
-    background-size: cover;
-    background-position: center;  
-  }
-
-  .akatsuki{
-    width: 100%;
-    padding: 20px;
-    background-image: url(img/Membros-Akatsuki.webp);
-    background-size: cover;
-    background-position: center;  
-  }
-  /* Footer */
-  .footer {
-    padding: 20px;
-    text-align: center;
-    background: #ddd;
-  }
-  
-  /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 700px) {
-    .row {   
-      flex-direction: column;
-    }
-  }
-  
-  /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-  @media screen and (max-width: 400px) {
-    .navbar a {
-      float: none;
-      width: 100%;
-    }
-
-    .header {
-        background-image: url(img/konoha.webp);
-        background-size: cover;
-        background-position: center;
-    }
-  }
